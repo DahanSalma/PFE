@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte Restaurant</title>
+    <link rel="stylesheet" th:href="@{../bootstrap-5.3.3-dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{path/to/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{../material-icon/css/material-design-iconic-font.min.css}">
+    <link rel="stylesheet" th:href="@{../css/register.css}">
+</head>
+<body class="main">
+<div th:if="${msg != null}" class="message">
+    [[${msg}]]
+</div>
+<div class="page-wrapper">
+    <div class="wrapper wrapper--w680" style="margin: 0 auto;">
+        <div class="card card-4">
+
+            <div class="card-body">
+                <div class="signin-form">
+                    <h2 class="title">Registration Form</h2>
+
+                    <form th:action="@{/registration}"
+                          method="post"
+                          role="form"
+                          class="restaurant-form"
+                          id="restaurant-form"
+                          th:object="${restaurantForm}">
+
+                    <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label" for="nomRestaurant">
+                                        Restaurant Name </label>
+                                    <input class="input--style-4"
+                                           th:field="*{nomRestaurant}"
+                                           type="text" id="nomRestaurant" name="nomRestaurant">
+
+                                <i class="bi bi-house-fill"></i>
+
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label" for="adresse">and its adresse</label>
+                                    <input class="input--style-4" type="text"
+                                           th:field="*{adresse}" name="adresse"
+                                           id="adresse">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label" for="nomResponsable">First Name</label>
+                                    <input class="input--style-4" required
+                                           th:field="*{nomResponsable}" type="text"
+                                           id="nomResponsable" name="nomResponsable">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label" for="prenomRespnsable">Last Name</label>
+                                    <input class="input--style-4" type="text" required
+                                           th:field="*{prenomRespnsable}"
+                                           name="prenomRespnsable" id="prenomRespnsable">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label" for="email">Email</label>
+                                    <input class="input--style-4"
+                                           th:field="*{email}" type="email"
+                                           id="email" name="email">
+                                    <i class="bi bi-envelope-fill"></i>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label" for="telephone">Phone Number</label>
+                                    <input class="input--style-4" type="text"
+                                           th:field="*{telephone}" name="telephone"
+                                           id="telephone">
+                                    <i class="bi bi-telephone-fill"></i>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label" for="typeCuisine">Type of cuisine</label>
+                                    <input class="input--style-4"
+                                           th:field="*{typeCuisine}" type="text"
+                                           id="typeCuisine" name="typeCuisine">
+                                    <i class="bi bi-cup-fill"></i>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label" for="horairesOuverture">Opening time</label>
+                                    <input class="input--style-4" type="text"
+                                           th:field="*{horairesOuverture}" name="horairesOuverture"
+                                           id="horairesOuverture">
+                                    <i class="bi bi-calendar-x"></i>
+
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="input-group">
+
+                                    <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                                    <input th:field="*{password}" type="password"
+                                           id="password" name="password"
+                                           placeholder="Enter your password" required>
+                                </div>
+                            </div>
+
+                        </div>
+                        <input type="submit"
+                               class="btn btn-warning mx-2 mt-4"  value="Register">
+
+                    </form>
+                </div>
+                <div class="signup-image">
+
+                    <a th:href="@{/sign-up}"   class="signup-image-link">Create an account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+

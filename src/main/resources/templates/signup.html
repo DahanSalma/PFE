@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" th:href="@{../bootstrap-5.3.3-dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{path/to/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{../material-icon/css/material-design-iconic-font.min.css}">
+    <link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+<body class="main">
+<div class="container">
+    <div class="message" th:if="${message != null}">
+        [[${message}]]
+    </div>
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Sign up</h2>
+                    <form th:action="@{/sign-up}"
+                          method="post"
+                          role="form"
+                          class="register-form"
+                          id="register-form"
+                          th:object="${user}">
+
+                        <div class="form-group">
+                            <label for="fullname">
+                                <i class="zmdi zmdi-account material-icons-name">
+
+                                </i></label>
+                            <input th:field="*{fullname}" type="text" id="fullname" name="fullname" placeholder="Your Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email"><i class="zmdi zmdi-email"></i></label>
+                            <input th:field="*{email}" type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                            <input th:field="*{password}" type="password" id="password" name="password" placeholder="Enter your password" required>
+                        </div>
+                        <input type="submit" value="Register" class="form-group">
+                    </form>
+                </div>
+                <div class="signup-image">
+                    <figure><img src="Img/login.png" alt="sign up image"></figure>
+                    <a th:href="@{/login}" class="signup-image-link">I am already a member</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

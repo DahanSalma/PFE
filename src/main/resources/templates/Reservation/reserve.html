@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation</title>
+    <link rel="stylesheet" th:href="@{../bootstrap-5.3.3-dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{path/to/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{../material-icon/css/material-design-iconic-font.min.css}">
+    <link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+<body class="main">
+<div th:if="${msg != null}" class="message">
+    [[${msg}]]
+</div>
+<section class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="Img/table.png" class="login-img" alt="Image description"></figure>
+                <a th:href="@{/sign-up}" class="signup-image-link">Create an account</a>
+            </div>
+            <div class="signin-form">
+                <h2 class="form-title">Reservation Table</h2>
+                <form th:action="@{/reservation}"
+                      method="post"
+                      role="form"
+                      class="register-form"
+                      id="login-form"
+                      th:object="${reserverForm}">
+                    <div class="form-group">
+                        <label for="first"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input th:field="*{firstName}" type="text" id="first" name="firstName" placeholder="Enter your First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input th:field="*{lastName}" type="text" id="last" name="lastName" placeholder="Enter your Last Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adresse"><i class="zmdi zmdi-location-on"></i></label>
+                        <input th:field="*{adresse}" type="text" id="adresse" name="adresse" placeholder="Enter your Address" required>
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        <input th:field="*{email}" type="email" id="email" name="email" placeholder="Enter your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mealsPerDay"><i class="zmdi zmdi-cutlery"></i></label>
+                        <select class="form-select" id="mealsPerDay" th:field="*{typeReservation}">
+                            <option value="1">Breakfast</option>
+                            <option value="2">Lunch</option>
+                            <option value="3">Dinner</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombrePersonne"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input th:field="*{nombrePersone}" type="number" id="nombrePersonne" name="nombrePersonne" placeholder="Enter Number of Persons" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateHeure"><i class="zmdi zmdi-calendar"></i></label>
+                        <input th:field="*{dateHeure}" type="datetime-local" id="dateHeure" name="dateHeure" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone"><i class="zmdi zmdi-phone"></i></label>
+                        <input th:field="*{phone}" type="tel" id="phone" name="phone" placeholder="Enter your Phone Number" required>
+                    </div>
+                    <input type="submit" value="Reserve">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

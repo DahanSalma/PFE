@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<head>
+    <title>Accueil</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="Img/png" th:href="@{../static/Img/mylogo.png}" >
+    <link rel="stylesheet"
+          th:href="@{../bootstrap-5.3.3-dist/css/bootstrap.min.css}">
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}"
+          rel="stylesheet"
+          integrity="sha512-vh7kAz19T5Gf5HAkugXYbVbKm3qeD5iX9XQQf+XH2tw5eTmElSzrVM1T9mli8OJXsBzvbSlgjsZ/nQpCZLIMmw=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+    />
+
+    <link th:href="@{/logo.png}"
+          rel="icon"
+          type="image/png"
+    />
+
+    <link rel="stylesheet" th:href="@{../css/Home.css}">
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="Img/logo.png" alt="App Name" height="60px">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#FAQ">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="d-flex align-items-center">
+            <a class="btn btn-warning mx-2" id="signup-btn" th:href="@{/sign-up}">Sign Up</a>
+            <a class="btn btn-warning mx-2" id="login-btn"  th:href="@{/login}">Login</a>
+        </div>
+    </div>
+
+</nav>
+<section class="header16 cid-u7HIBMovC6 mbr-fullscreen mbr-parallax-background" id="hero-17-u7HIBMovC6">
+    <video autoplay muted loop id="video-bg">
+        <source src="Img/v3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(0, 0, 0);"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="content-wrap col-12 col-md-10">
+                <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1">
+                    <strong>Réservez Maintenant</strong>
+                </h1>
+                <p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7">
+                    Découvrez une expérience culinaire inoubliable - Réservez votre table en ligne dès aujourd&#x27;hui!</p>
+                <div class="mbr-section-btn"><a class="btn btn-white-outline display-7"
+                                                th:href="@{/reservation}">Réserver Table</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="services" class="services bg-dark">
+    <div class="container">
+        <h6 class="text-dark"> h </h6>
+        <strong>
+            <h2 class="text-center mb-4 text-light"> Découvrez les meilleurs restaurants :</h2>
+        </strong>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="service-card card shadow">
+                    <img src="../Img/ImgMaroc/DAR EL KAID.jpg" class="card-img-top" alt="Service 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Restaurant Dar El Kaid</h5>
+                        <p class="card-text">
+                            Découvrez le meilleur de la cuisine marocaine et l’ambiance authentique de
+                            Casablanca au restaurant « Dar El Kaid ».
+                        </p>
+                        <a href="https://www.darelkaid.ma/" class="btn btn-success">Détails</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="service-card card shadow">
+                    <img src="../Img/ImgMaroc/Nomad.jpg" class="card-img-top" alt="Service 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Restaurant Nomad</h5>
+                        <p class="card-text">Pour ceux qui recherchent une touche contemporaine aux
+                            plats marocains traditionnels, Nomad est l’endroit idéal. Situé au cœur
+                            de la Médina, ce restaurant élégant offre une atmosphère chic et moderne avec
+                            des vues panoramiques sur la ville depuis sa terrasse sur le toit.
+                            Le menu du Nomadgastronomique.
+                        </p>
+                        <a href="https://nomadmarrakech.com/" class="btn btn-success">Détails</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="service-card card shadow">
+                    <img src="../Img/ImgMaroc/kabani.jpg" class="card-img-top" alt="Service 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Restaurant Rif Kebdani</h5>
+                        <p class="card-text">Ce restaurant élégant offre aux clients une
+                            expérience merveilleuse. Le service est impeccable, et ils font
+                            tout leur chemin pour vous aider.
+                        </p>
+                        <a href="https://www.google.com/maps/place/Restaurant+KEBDANI/@35.7866623,-5.8096424,15z/data=!4m6!3m5!1s0xd0c7f4df9d7efe1:0x6
+                        13f924e254c3ce2!8m2!3d35.7866623!4d-5.8096424!16s%2Fg%2F11cn9c58j1?entry=ttu" class="btn btn-success">Détails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="services bg-dark">
+    <div class="container">
+        <h6 class="text-dark"> h </h6>
+        <div class="row">
+            <div class="col-md-4 mb-4"> <!-- Ajout de la classe mb-4 -->
+                <div class="service-card card shadow">
+                    <img src="../Img/ImgMaroc/Foundouk.jpg" class="card-img-top img-fluid" alt="Service 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Restaurant El Le Foundouk </h5>
+                        <p class="card-text">Situé dans le cœur historique de Marrakech,
+                            le Restaurant Le Foundouk fait partie de la sélection
+                            internationale - CNN 2016 - des meilleurs "Restaurant en toit-terrasse".
+
+                        </p>
+                        <a href="https://www.foundouk.com/" class="btn btn-success">
+                            Détails</a>
+                        <!-- Bouton stylisé -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4"> <!-- Ajout de la classe mb-4 -->
+                <div class="service-card card shadow">
+                    <img src="../Img/ImgMaroc/ch1.jpg" class="card-img-top img-fluid" alt="Service 2">
+                    <div class="card-body">
+                        <h5 class="card-title"> Restaurant Le Chalet de la Plage  </h5>
+                        <p class="card-text">Le Chalet de la Plage est avant tout une
+                            histoire de famille comme on les aime, repris par la famille
+                            de lir groupes et familles, repas d’affaires ou diner entre amis, nul ne peut venir à Essaouira sans s’assoir à la table du Chalet de la Plage.
+
+
+                        </p>
+                        <a href="https://www.restaurantlechaletdelaplage.com/" class="btn btn-success">Détails</a>
+                        <!-- Bouton stylisé -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4"> <!-- Ajout de la classe mb-4 -->
+                <div class="service-card card shadow">
+                    <img src="../Img/ImgMaroc/terasse.jpg" class="card-img-top img-fluid" alt="Service 3">
+                    <div class="card-body">
+                        <h5 class="card-title">La Terrasse de La Brillante</h5>
+                        <p class="card-text">La Terrasse de La Brillante vous invite à un
+                            voyage gustatif, alliant produits frais et créations gourmandes,
+                            tout en privilégiant l’équilibre et la légèreté de ses recettes.
+
+
+                        </p>
+                        <a href="https://www.laterrassedelabrillante.com/" class="btn btn-success">Détails</a>
+                        <!-- Bouton stylisé -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!--Section1 -->
+<section class="gallery07" id="gallery-16-u8stpuMCMm">
+    <div class="container-fluid gallery-wrapper">
+        <div class="row justify-content-center">
+
+            <h4 class="mbr-section-title align-center mb-0 display-2">
+                <strong>Découvrez Nos Plats Marocain</strong>
+            </h4>
+            <div class="col-6">
+                <div class="input-group">
+                    <p>
+                        Moroccan couscous is a culinary specialty of the Maghreb. It
+                        simply represents a mixture of two main dishes. This is
+                        wheat semolina cooked in a steamed couscous maker and a
+                        fatty substance which can be either butter or generally
+                        olive oil. he can be seasoned with several ingredients and
+                        accompanied with different foods. Couscous has a dual
+                        origin. Firstly, it is a traditional staple food from
+                        Maghreb cuisine and secondly a Berber culinary specialty. It
+                        is a dish which finds its genesis entirely in Africa and
+                        more precisely in North Africa. This is an emblematic recipe
+                        of this region, which is prepared according to local and
+                        cultural variations.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group">
+                    <img
+                            src="Img/ImgMaroc/couscous.jpg"
+                            alt="Plat Marocain 1"
+                            class="img-fluid"
+                    />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group">
+                    <img
+                            src="/Img/ImgMaroc/Tajine.jpg"
+                            alt="Plat Marocain 1"
+                            class="img-fluid"
+                    />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group">
+                    <p>
+                        Le plat marocain est connu pour sa richesse en saveurs et en
+                        épices. De délicieux tajines, couscous, et autres plats
+                        traditionnels vous attendent pour une expérience culinaire
+                        inoubliable.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group">
+                    <p>
+                        Le plat marocain est connu pour sa richesse en saveurs et en
+                        épices. De délicieux tajines, couscous, et autres plats
+                        traditionnels vous attendent pour une expérience culinaire
+                        inoubliable.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group">
+                    <img
+                            src="Img/ImgMaroc/the.jpg"
+                            alt="Plat Marocain 1"
+                            class="img-fluid"
+                    />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group">
+                    <img
+                            src="Img/ImgMaroc/harira.jpg"
+                            alt="Plat Marocain 1"
+                            class="img-fluid"
+                    />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group">
+                    <p>
+                        Le plat marocain est connu pour sa richesse en saveurs et en
+                        épices. De délicieux tajines, couscous, et autres plats
+                        traditionnels vous attendent pour une expérience culinaire
+                        inoubliable.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section>
+    <div class="faq_area section_padding_130" id="FAQ">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-8 col-lg-6">
+                    <div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <h3><span >Questions Fréquentes</span> </h3>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-10 col-lg-8">
+                    <div class="accordion faq-accordian" id="faqAccordion">
+                        <div class="card border-0 wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                            <div class="card-header" id="headingOne">
+                                <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Comment s'inscrire?
+                                    <span class="lni-chevron-up">
+                                </span></h6>
+                            </div>
+                            <div class="collapse" id="collapseOne" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    <p> Pour vous inscrire, cliquez sur le bouton 'S'inscrire'
+                                        dans la barre de navigation
+                                        et suivez les instructions simples.</p>
+                                </div></div></div>
+                        <div class="card border-0 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                            <div class="card-header" id="headingTwo">
+                                <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                    aria-expanded="true" aria-controls="collapseTwo">
+                                    Comment se connecter?
+
+                                    <span class="lni-chevron-up"></span>
+
+                                </h6>
+                            </div>
+                            <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    <p> Pour vous connecter, saisissez vos identifiants dans le
+                                        formulaire de connexion et appuyez sur 'Connexion'.</p>
+                                </div></div></div>
+                        <div class="card border-0 wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                            <div class="card-header" id="headingThree">
+                                <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                    aria-expanded="true" aria-controls="collapseThree">Comment créer un restaurant?<span class="lni-chevron-up"></span></h6>
+                            </div>
+                            <div class="collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    <p> Les responsables de restaurant peuvent créer un compte en cliquant sur '
+                                        Créer Restaurant' et en fournissant les
+                                        détails requis comme le nom, la localisation et le type de cuisine..</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="support-button text-center d-flex align-items-center justify-content-center mt-4 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                        <i class="lni-emoji-sad"></i>
+                        <p class="mb-0 px-2">Quels types de cuisine sont disponibles?</p>
+                        <p>Nous proposons une variété de cuisines allant de la cuisine traditionnelle
+                            à la fusion moderne. Découvrez nos options sur notre site!</p>
+                    </div>
+                    <div class="card border-0 wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                        <div class="card-header" id="heading">
+                            <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                aria-expanded="true" aria-controls="collapseThree">
+                                Comment faire une réservation?<span class="lni-chevron-up"></span></h6>
+                        </div>
+                        <div class="collapse" id="collaps" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                            <div class="card-body">
+                                <p> Sélectionnez le restaurant de votre choix, choisissez
+                                    la date et l'heure souhaitées,
+                                    puis confirmez votre réservation en quelques clics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="reviews bg-dark rating">
+    <div class="row justify-content-md-center">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+            <h2 class="mb-4 display-5 text-center text-light">Contactez-nous</h2>
+            <p class="text-secondary mb-5 text-center">
+                La meilleure façon de nous contacter est d'utiliser notre formulaire de contact ci-dessous.
+                Veuillez utiliser les informations ci-dessous pour nous joindre.</p>
+            <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+        </div>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <div class="wrapper">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 mb-5">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="dbox w-100 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="zmdi zmdi-city-alt"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p class="text-light"><span class="text-light">Address:</span>
+                                            333 West 21th Street, Suite 721 Ksar El kbir  Morocco 10016</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dbox w-100 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="zmdi zmdi-phone"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p class="text-light"><span class="text-light">Phone:</span> <a class="text-light" href="tel://1234567920">+212 707947436</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dbox w-100 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="zmdi zmdi-email"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p><span class="text-light">Email:</span> <a class="text-light" href="mailto:info@yoursite.com">myfitjourney@gmail.com</a></p>
+                                    </div></div></div></div></div></div></div></div></div>
+    <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+</section>
+</body>
+</html>
