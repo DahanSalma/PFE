@@ -47,9 +47,8 @@ public class SecurityConfig {
                         .requestMatchers("/user-page").hasAuthority("USER")
                         .requestMatchers("/user").hasAuthority("USER")
                         .requestMatchers("/profile").hasAuthority("USER")
-                        .requestMatchers("/sign-up","/add", "/css/**", "/Img/**", "/bootstrap-5.3.3-dist/css/bootstrap.min.css","/material-icon/**"
+                        .requestMatchers("/sign-up","/users/{id}","/users", "/css/**", "/Img/**", "/bootstrap-5.3.3-dist/css/bootstrap.min.css","/material-icon/**"
                                 ,"/path/to/fontawesome-all.min.css").permitAll()
-                        .requestMatchers("/", "/reservation").permitAll()
                         .anyRequest().authenticated())
 
 
@@ -64,7 +63,6 @@ public class SecurityConfig {
 
         return http.build();
     }
-
     @Autowired
     public void configure (AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());

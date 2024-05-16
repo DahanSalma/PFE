@@ -7,50 +7,32 @@ import lombok.Setter;
 import org.springframework.stereotype.Component;
 import pfe.serveur.partie_serveur.utilisateur.model.User;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @Component
 @Entity
-@Table(name = "resrver", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "resrvation", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class ReserverForm {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
     private String lastName;
     private String phone;
-    private String adresse;
-    private int dateHeure;
+    private LocalDateTime dateHeure;
     private int nombrePersone;
+    @Column(unique = true)
     private String email;
     private String typeReservation;
-    @ManyToOne
-    @JoinColumn(name = "user_email", referencedColumnName = "email")
-    private User user; // Relation avec l'utilisateur
-
-    public ReserverForm() {
-    }
 
 
 
 
-    public ReserverForm(String adresse,
-                        Integer dateHeure,
-                        String firstName, String lastName,
-                        int nombrePersone, String typeReservation,
-                        String email,
-                        String phone) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
-        this.adresse = adresse;
-        this.dateHeure = dateHeure;
-        this.nombrePersone = nombrePersone;
-        this.email = email;
-        this.typeReservation = typeReservation;
-    }
 
-    public void setUserEmail(String userEmail) {
-    }
+
+
+
 }

@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
-import java.security.SignatureException;
 import java.util.Calendar;
 import java.util.Date;
 

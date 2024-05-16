@@ -13,7 +13,7 @@ import pfe.serveur.partie_serveur.utilisateur.model.User;
 @Service
 public class CustomUserDetail implements UserDetails {
 
-    private User user;
+    private  User user;
 
     public CustomUserDetail(User user) {
         this.user = user;
@@ -31,8 +31,11 @@ public class CustomUserDetail implements UserDetails {
     public String getEmail(){
         return user.getEmail();
     }
-    public String getFullname(){
-        return user.getFullname();
+    public String getFirstname(){
+        return user.getFirstname();
+    }
+    public String getLastName(){
+        return user.getLastname();
     }
 
     @Override

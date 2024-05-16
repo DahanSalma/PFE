@@ -13,27 +13,29 @@ import org.springframework.stereotype.Component;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String fullname;
+    private String firstname;
+    private String lastname;
+    @Column(unique = true)
     private String email;
     private String password;
     private String role;
 
 
 
-
-
-
-    public User(String email, String password, String role, String fullname) {
+    public User(String email, String password, String role, String firstname,String lastname ) {
 
         this.email = email;
         this.password = password;
         this.role = role;
-        this.fullname = fullname;
+        this.firstname=firstname;
+        this.lastname=lastname;
     }
 
     public User() {
 
     }
+
+
 }

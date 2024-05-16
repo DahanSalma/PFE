@@ -5,9 +5,12 @@ package pfe.serveur.partie_serveur.utilisateur.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pfe.serveur.partie_serveur.exception.EmailAlreadyExistsException;
 import pfe.serveur.partie_serveur.utilisateur.dto.UserDto;
 import pfe.serveur.partie_serveur.utilisateur.model.User;
 import pfe.serveur.partie_serveur.utilisateur.repository.UserRepository;
+
+import java.util.List;
 
 
 @Service
@@ -22,9 +25,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(UserDto userDto) {
+        // Vérifier si l'email existe déjà
+        if (userRepository.existsByEmail(userDto.getEmail())) {
+            try {
+                throw new EmailAlreadyExistsException("L'email existe déjà : " + userDto.getEmail());
+            } catch (EmailAlreadyExistsException e) {
+                throw new RuntimeException(e);
+            }
+        }
         User user = new User(userDto.getEmail(),
                 passwordEncoder.encode(userDto.getPassword()),
-                userDto.getRole(), userDto.getFullname());
+                userDto.getRole(), userDto.getFirstname(),userDto.getLastname());
         return userRepository.save(user);
     }
 
@@ -50,8 +61,40 @@ public class UserServiceImpl implements UserService {
     public boolean isUserLoggedIn() {
         return false;
     }
+    @Override
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void updateUser(Long id, UserDto userDto) {
+        // Récupérer l'utilisateur à mettre à jour depuis la base de données
+        User existingUser = userRepository.findById(id).orElse(null);
+        if (existingUser == null) {
+            throw new IllegalArgumentException("User not found with id: " + id);
+        }
+
+        // Mettre à jour les champs de l'utilisateur avec les données de UserDto
+        existingUser.setEmail(userDto.getEmail());
+        existingUser.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        existingUser.setRole(userDto.getRole());
+        existingUser.setFirstname(userDto.getFirstname());
+        existingUser.setLastname(userDto.getLastname());
+
+        // Enregistrer les modifications dans la base de données
+        userRepository.save(existingUser);
+    }
 
 
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
 
 
 }

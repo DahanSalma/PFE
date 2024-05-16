@@ -27,11 +27,21 @@
                           th:object="${user}">
 
                         <div class="form-group">
-                            <label for="fullname">
+                            <label for="firstname">
                                 <i class="zmdi zmdi-account material-icons-name">
 
                                 </i></label>
-                            <input th:field="*{fullname}" type="text" id="fullname" name="fullname" placeholder="Your Name" required>
+                            <input th:field="*{firstname}" type="text"
+                                   id="firstname" name="fullname"
+                                   placeholder="Your FirstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">
+                                <i class="zmdi zmdi-account material-icons-name">
+
+                                </i></label>
+                            <input th:field="*{lastname}" type="text" id="lastname"
+                                   name="fullname" placeholder="Your LastName" required>
                         </div>
 
                         <div class="form-group">

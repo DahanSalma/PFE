@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" th:href="@{../css/resto.css}">
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+<h1>Menu du restaurant</h1>
+<div th:each="plat : ${plats}">
+    <h2 th:text="${plat.plat1}"></h2>
+    <p th:text="${plat.descript}"></p>
+    <p th:text="${plat.prix}"></p>
+</div>
+</body>
+</html>
+
+<div class="app-container">
+    <h2>User Details</h2>
+    <div>
+        <p><strong>ID:</strong> [[${user.id}]]</p>
+        <p><strong>Name:</strong> [[${user.fullname}]]</p>
+        <p><strong>Email:</strong> [[${user.email}]]</p>
+        <!-- Add more details as needed -->
+    </div>
+</div>
+</body>
+</html>

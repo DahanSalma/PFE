@@ -9,10 +9,9 @@
     <link rel="stylesheet" th:href="@{../material-icon/css/material-design-iconic-font.min.css}">
     <link rel="stylesheet" th:href="@{../css/styles.css}">
 </head>
+
 <body class="main">
-<div th:if="${msg != null}" class="message">
-    [[${msg}]]
-</div>
+
 <section class="sign-in">
     <div class="container">
         <div class="signin-content">
@@ -22,12 +21,16 @@
             </div>
             <div class="signin-form">
                 <h2 class="form-title">Reservation Table</h2>
+
                 <form th:action="@{/reservation}"
                       method="post"
                       role="form"
                       class="register-form"
                       id="login-form"
                       th:object="${reserverForm}">
+                    <div th:if="${msg != null}" class="message">
+                       <p class="msag">[[${msg}]]</p>
+                    </div>
                     <div class="form-group">
                         <label for="first"><i class="zmdi zmdi-account material-icons-name"></i></label>
                         <input th:field="*{firstName}" type="text" id="first" name="firstName" placeholder="Enter your First Name" required>
@@ -37,20 +40,17 @@
                         <input th:field="*{lastName}" type="text" id="last" name="lastName" placeholder="Enter your Last Name" required>
                     </div>
                     <div class="form-group">
-                        <label for="adresse"><i class="zmdi zmdi-location-on"></i></label>
-                        <input th:field="*{adresse}" type="text" id="adresse" name="adresse" placeholder="Enter your Address" required>
-                        <i class="bi bi-geo-alt-fill"></i>
-                    </div>
-                    <div class="form-group">
                         <label for="email"><i class="zmdi zmdi-email"></i></label>
                         <input th:field="*{email}" type="email" id="email" name="email" placeholder="Enter your Email" required>
                     </div>
                     <div class="form-group">
                         <label for="mealsPerDay"><i class="zmdi zmdi-cutlery"></i></label>
-                        <select class="form-select" id="mealsPerDay" th:field="*{typeReservation}">
-                            <option value="1">Breakfast</option>
-                            <option value="2">Lunch</option>
-                            <option value="3">Dinner</option>
+                        <select class="form-select" id="mealsPerDay"
+                                th:field="*{typeReservation}">
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="snack">Snack</option>
+                            <option value="dinner">Dinner</option>
                         </select>
                     </div>
                     <div class="form-group">

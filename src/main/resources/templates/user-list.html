@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+
+</head>
+<body>
+<style>
+    /* Table container */
+    .app-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    /* Table header */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    th {
+        background-color: #f5f5f5;
+        padding: 1rem;
+        text-align: left;
+        font-weight: normal;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        color: #777;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Table body */
+    td {
+        padding: 1rem;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Table actions */
+    td:last-child {
+        white-space: nowrap;
+    }
+
+    a {
+        display: inline-block;
+        margin-right: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+        background-color: #0069d9;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        th,
+        td {
+            padding: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        td:last-child {
+            white-space: normal;
+        }
+
+        a {
+            padding: 0.3rem 0.7rem;
+        }
+    }
+</style>
+<div class="app-container">
+    <h2>User List</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="users : ${user}">
+            <td th:text="${users.id}"></td>
+            <td th:text="${users.fullname}"></td>
+            <td th:text="${users.email}"></td>
+            <td>
+                <a th:href="@{/users/{id}(id=${users.id})}">Détails</a>
+                <a th:href="@{/users/{id}/edit(id=${users.id})}">Modifier</a>
+                <a th:href="@{/users/{id}/delete(id=${users.id})}">Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
