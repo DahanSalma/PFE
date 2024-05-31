@@ -90,11 +90,34 @@ public class UserServiceImpl implements UserService {
         userRepository.save(existingUser);
     }
 
-
     @Override
     public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+
     }
+
+
+    @Override
+    public void save(User user) {
+     userRepository.save(user);
+    }
+
+    @Override
+    public List<User> listAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
+        // Ajoutez ici toute autre logique nécessaire après la suppression de l'utilisateur.
+    }
+
+    @Override
+    public User findById(Long id) {
+        return userRepository.findById(id).orElse(null);
+        // Vous pouvez également ajouter une logique supplémentaire ici si nécessaire.
+    }
+
 
 
 }

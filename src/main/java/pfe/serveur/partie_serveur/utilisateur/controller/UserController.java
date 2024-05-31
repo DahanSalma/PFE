@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import pfe.serveur.partie_serveur.exception.EmailAlreadyExistsException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import pfe.serveur.partie_serveur.reservation.model.ReserverForm;
 import pfe.serveur.partie_serveur.utilisateur.model.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import pfe.serveur.partie_serveur.jwtutil.JwtTokenUtils;
 import pfe.serveur.partie_serveur.utilisateur.dto.UserDto;
 import pfe.serveur.partie_serveur.utilisateur.repository.UserRepository;
+import pfe.serveur.partie_serveur.utilisateur.service.CustomUserDetailsService;
 import pfe.serveur.partie_serveur.utilisateur.service.UserService;
 
 
@@ -27,6 +29,8 @@ import java.util.UUID;
 
 @Controller
 public class UserController {
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
 
     @Autowired
     private UserService userService;
@@ -105,52 +109,79 @@ private UserRepository userRepository;
     public String adminPage(Model model, Principal principal) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("user", userDetails);
-        return "admin";
+        return "/dashbord/admin";
     }
-
+    @GetMapping("/profile")
+    public String profile(@ModelAttribute("userForm") User user,Model model)  {
+        model.addAttribute("user", user);
+        return "profile";
+    }
+    //All liste des clients
     @GetMapping("/admin-page/users")
     public String showAllUsers(Model model){
         List<User> users = userRepository.findAll();
         model.addAttribute("user",users);
         return "users";
     }
-
-    /*// Afficher tous les utilisateurs
-    @GetMapping("/users")
-    public String getAllUsers(Model model) {
-        List<User> users = userService.getAllUsers();
-        model.addAttribute("users", users);
-        return "user-list"; // Assurez-vous d'avoir une vue user-list pour afficher la liste des utilisateurs
+    //update profile Clients
+    @GetMapping("/updateProfile")
+    public String updateProfile() {
+        return "add-user";
     }
 
-    // Afficher les détails d'un utilisateur par ID
-    @GetMapping("/users/{id}")
-    public String getUserById(@PathVariable("id") Long id, Model model) {
+
+
+    @GetMapping("/add")
+    public String showFormForAdd(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "add-user";
+    }
+
+
+
+    @GetMapping("/shawNewClientsForm")
+    public String shawNewClientsForm(@ModelAttribute("userForm") User user) {
+
+        return "new_clients";
+    }
+
+    @PostMapping("/saveClient")
+    public String saveClient(@ModelAttribute("userForm") UserDto userDto, Model model) {
+        userService.save(userDto);
+        model.addAttribute("msg", "client bien ajouter");
+        return "new_clients";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String showFormForUpdate(@PathVariable("id") Long id, Model model) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
-        return "user-details"; // Assurez-vous d'avoir une vue user-details pour afficher les détails de l'utilisateur
+        return "add-user"; // Assurez-vous que le nom de la vue est correct ici.
     }
 
-    // Ajouter un nouvel utilisateur
-    @PostMapping("/users")
-    public String saveUser(@ModelAttribute("user") UserDto userDto) {
-        userService.save(userDto);
-        return "redirect:/users";
+    @PostMapping("/edit/{id}")
+    public String updateUser(@PathVariable("id") Long id,
+                             @ModelAttribute("user") User user, Model model) {
+        user.setId(id);
+        userService.save(user);
+        model.addAttribute("msg", "client bien modifier");
+        return "users"; // Assurez-vous que le chemin de redirection est correct.
     }
 
-    // Mettre à jour les informations d'un utilisateur par ID
-    @PutMapping("/users/{id}")
-    public String updateUser(@PathVariable("id") Long id, @ModelAttribute("user") UserDto userDto) {
-        userService.updateUser(id, userDto);
-        return "redirect:/users";
+
+    @GetMapping("/delete/{id}")
+    public String deleteUsers(@PathVariable("id") Long id, Model model) {
+        userService.delete(id);
+        return "users";
     }
 
-    // Supprimer un utilisateur par ID
-    @DeleteMapping("/users/{id}")
-    public String deleteUser(@PathVariable("id") Long id) {
-        userService.deleteUser(id);
-        return "redirect:/users";
-    }*/
+    @GetMapping("/delete-confirm/{id}")
+    public String getDeleteConfirm(@PathVariable("id") Long id, Model model) {
+        User user = userService.findById(id);
+        model.addAttribute("user", user);
+        return "delete-confirm";
+    }
 }
 
 

@@ -117,23 +117,42 @@
 <body>
 <div class="sidebar">
     <button class="dashboard-admin-btn">
-        <i class="fas fa-male"></i> Dashboard Clients
+        <i class="fas fa-male"></i> Dashboard Admin
     </button>
     <ul>
         <li class="nav-item active">
             <a class="nav-link" th:href="@{/homepage}"><i class="fas fa-home"></i> Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" th:href="@{/profile}">
+            <a class="nav-link" href="#">
                 <i class="zmdi zmdi-account material-icons-name"></i> Profile</a>
         </li>
-
-        <li class="nav-item active">
-            <a class="nav-link" th:href="@{/admin-page/reserves}"><i class="fas fa-home">
-
-            </i>Ma Reservation</a>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" th:href="@{/admin-page/users}">
+                <i class="fas fa-users"></i> Clients
+            </a>
         </li>
+        <li class="nav-item active">
+            <a class="nav-link" th:href="@{/admin-page/reserves}"><i class="fas fa-home"></i> Gerer Reservation</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a
+                    class="nav-link dropdown-toggle"
+                    id="navbarDropdownMenuLink"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+            >
+                <i class="fas fa-utensils"></i> Menu
+            </a>
 
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" th:href="@{/admin-page/breakfast}">Liste Breakfast</a>
+                <a class="dropdown-item" th:href="@{/admin-page/lunch}">Liste Lunche</a>
+                <a class="dropdown-item" th:href="@{/admin-page/snack}">Liste Snack</a>
+                <a th:href="@{/admin-page/dinner}" class="dropdown-item">Liste Diner</a>
+            </div>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link" th:href="@{/logout}"
@@ -172,7 +191,7 @@
     <div class="container">
         <div class="dashboard">
             <div class="card profile welcome-message">
-                <h2>Welcome Client [[${user.getFirstname()}]]! In My Restaurants</h2>
+                <h2>Welcome admin [[${user.getFirstname()}]]!</h2>
             </div>
         </div>
     </div>

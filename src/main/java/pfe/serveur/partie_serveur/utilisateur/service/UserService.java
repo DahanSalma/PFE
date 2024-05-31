@@ -32,6 +32,14 @@ public interface UserService {
     void updateUser(Long id, UserDto userDto);
 
     void deleteUser(Long id);
+
+    void save(User user);
+
+    List<User> listAll();
+
+    void delete(Long id);
+
+    User findById(Long id);
 }
 
 

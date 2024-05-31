@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <style>
+        .profile-card.profile-actions a {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .profile-card.profile-actions a:hover {
+            background-color: #444;
+        }
+        .profile-card {
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 50px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .profile-card h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile-card.profile-image {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile-card.profile-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .profile-card.profile-details {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile-card.profile-details h2 {
+            margin-bottom: 10px;
+        }
+        .profile-card.profile-details p {
+            color: #666;
+        }
+        .profile-card.profile-actions {
+            text-align: center;
+        }
+        .profile-card.profile-actions a {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .profile-card.profile-actions a:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+<div class="profile-card">
+    <div class="profile-image">
+        <i class="fas fa-male" style="font-size: 150px; color: #666;"></i>
+    </div>
+    <div class="profile-details">
+        <h2>Profile</h2>
+        <h3>First Name</h3>
+        <p th:text="${user.firstname}"></p>
+        <h3>Last Name</h3>
+        <p th:text="${user.lastname}"></p>
+        <h3>Email</h3>
+        <p th:text="${user.email}"></p>
+    </div>
+    <div class="profile-actions">
+        <a th:href="@{/updateProfile}"><i class="fas fa-edit"></i> Update Profile</a>
+        <a th:href="@{/deleteAccount}"><i class="fas fa-trash-alt"></i> Delete Account</a>
+    </div>
+</div>
+</body>
+</html>

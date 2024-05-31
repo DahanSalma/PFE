@@ -46,7 +46,6 @@ public class SecurityConfig {
                         .requestMatchers("/admin-page").hasAuthority("ADMIN")
                         .requestMatchers("/user-page").hasAuthority("USER")
                         .requestMatchers("/user").hasAuthority("USER")
-                        .requestMatchers("/profile").hasAuthority("USER")
                         .requestMatchers("/sign-up","/users/{id}","/users", "/css/**", "/Img/**", "/bootstrap-5.3.3-dist/css/bootstrap.min.css","/material-icon/**"
                                 ,"/path/to/fontawesome-all.min.css").permitAll()
                         .anyRequest().authenticated())
